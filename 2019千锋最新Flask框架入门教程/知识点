@@ -8,4 +8,10 @@
     migrate
     update
     结合flask-script的使用(类似django)
-6,
+6,flask路由
+7，flask请求错误处理
+8，flask会话保持,持久化存储到redis中
+    pip install Flask-Session
+9，template
+    Jinja语法的使用 "挖坑填坑"
+    pip install flask-bootstrap
