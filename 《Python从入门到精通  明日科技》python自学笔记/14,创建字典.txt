@@ -1,0 +1,36 @@
+#   字典的创建
+#1，直接定义字典
+dic1 = {"k1":"v1","k2":"v2",3:"v3"}
+print("dic1：",dic1)
+
+#2，通过映射函数zip()创建字典
+keys=list(range(4))
+values=["尹业立","Ocean","yyl","yinyeli"]
+dic2 = dict(zip(keys,values))
+print("dic2：",dic2)
+
+#3，通过给定的“键—值”对 创建字典
+dic3 = dict(k1="v1",k2="v2",kn="vn") # 此处的key不可以是整数，会报错
+print("dic3：",dic3)
+
+#4，利用fromkeys创建值为空的字典
+keylist=["k1","k2","k3"]
+dic4 = dict.fromkeys(keylist)
+print("dic4：",dic4)
+
+#5，字典推导式
+import random
+randomdict = {i:random.randint(1,100) for i in range(1,11)}
+print("生存的随机数字典为：",randomdict)
+
+
+
+#6，字典的遍历
+#6.1 dict.items()返回键值对的形式
+for item in dic1.items():
+    print(item)
+for key,value in dic1.items():
+    print(key,":",value)
+
+#6.2 dict.values()
+#6.3 dict.keys()

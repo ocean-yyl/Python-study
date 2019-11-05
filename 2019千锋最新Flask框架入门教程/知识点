@@ -1,0 +1,11 @@
+1,flask-script使用
+2,flask-blueprint使用
+3,模板的使用{{ msg }} "挖坑填坑"
+4,models->ORM:  sqlalchemy
+                flask-sqlalchemy
+5,Flask-migrate的使用
+    init
+    migrate
+    update
+    结合flask-script的使用(类似django)
+6,

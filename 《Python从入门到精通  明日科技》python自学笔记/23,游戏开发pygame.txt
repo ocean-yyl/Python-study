@@ -1,0 +1,23 @@
+import sys
+import pygame
+
+pygame.init()
+size = width,heigth = 640,480
+screen = pygame.display.set_mode(size)
+
+# 变颜色
+color = (64,64,64)
+screen.fill(color)
+pygame.display.flip()# 更新界面
+
+#加载图片
+people = pygame.image.load('1.jpg') # 加载图片
+people_rect = people.get_rect()# 获取矩形区域
+screen.blit(people,people_rect)# 将图片画到窗口上
+pygame.display.flip()# 更新界面
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit()
+

@@ -1,0 +1,4 @@
+result1 = 20 // 3
+result2 = -20 // 3
+print(result1)  #6 向下取整
+print(result2)  #-7 向下取整

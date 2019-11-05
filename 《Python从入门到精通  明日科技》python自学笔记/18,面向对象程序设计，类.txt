@@ -1,0 +1,91 @@
+# 面向对象程序设计，类
+#1，构造方法__init__(),__init__相当于java中类的构造函数，每当创建一个新实例时，都会执行。
+class say:
+    """say 类"""
+    def __init__(self):
+        print("hello PUA!")
+
+say1 = say()
+
+#2，创建类的成员并访问
+class MyClass:
+    """一个简单的类实例"""
+    i = 12345
+    def f(self):
+        return 'hello world'
+# 实例化类
+x = MyClass()
+# 访问类的属性和方法
+print("MyClass 类的属性 i 为：", x.i)
+print("MyClass 类的方法 f 输出为：", x.f())
+
+
+#3,访问限制——可以在属性或方法前添加单下划线(_foo)、双下划线(__foo)、或首尾双下划线(__foo__)，从而限制访问权限。
+
+#3.1 单下划线(_foo)----protected保护----类型的成员，只允许本身和子类进行访问，可以通过类的实例进行访问，但不能使用from module import * 语句导入
+
+#3.2 双下划线(__foo)----private私有----类型的成员，只允许该方法的类本身进行访问，而且也不能通过类的实例进行访问。（python特殊机制——>）但是可以通过“类的实例名.类名_xxx”方式访问。
+
+#3.3 首尾双下划线(__foo__)----定义特殊方法，一般是系统的名字。如__init__()
+
+#4，装饰器----查看pdf文件或网页https://www.jianshu.com/p/d48ee5da15f2
+
+#5，继承
+"""
+class DerivedClassName(Base1, Base2, Base3):
+    <statement-1>
+    .
+    .
+    .
+    <statement-N>
+"""
+# 类定义
+class people:
+    # 定义基本属性
+    name = ''
+    age = 0
+    # 定义私有属性,私有属性在类外部无法直接进行访问
+    __weight = 0
+
+    # 定义构造方法
+    def __init__(self, n, a, w):
+        self.name = n
+        self.age = a
+        self.__weight = w
+
+    def speak(self):
+        print("%s 说: 我 %d 岁。" % (self.name, self.age))
+# 单继承示例
+class student(people):
+    grade = ''
+
+    def __init__(self, n, a, w, g):
+        # 调用父类的构函
+        people.__init__(self, n, a, w)
+        self.grade = g
+
+    # 覆写父类的方法
+    def speak(self):
+        print("%s 说: 我 %d 岁了，我在读 %d 年级" % (self.name, self.age, self.grade))
+s = student('ken', 10, 60, 3)
+s.speak()
+
+
+#6，方法重写
+
+#7，派生类（子类）中必须调用基类（父类）的__init__()方法
+#在子类中定义__init__()方法时，不会自动调用父类的__init__()方法。例如：
+class Fruit:
+    def __init__(self,color="绿色"):
+        self.color = color
+    def harvest(self):
+        print("水果颜色是：",self.color)
+
+class Apple(Fruit):
+    def __init__(self):
+        super().__init__() # 如果没有这行语句，调用父类方法，则会报错——AttributeError: 'Apple' object has no attribute 'color'。
+        print("我是苹果")
+
+apple1 = Apple()
+apple1.harvest()
+

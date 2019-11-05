@@ -1,0 +1,30 @@
+list = list(range(10))
+print(list,id(list))
+
+# 排序后，列表地址不变
+list.sort(reverse=True)
+print(list,id(list))
+
+# 交换其中两个元素的位置，列表地址不变
+a = list[2]
+list[2] = list[3]
+list[3] = a
+print(list,id(list))
+
+# 修改其中任意一个元素的值，列表地址不变
+list[0] = 200
+print(id(list))
+
+# 使用append增加一个元素，列表地址不变
+list.append(200)
+print(id(list))
+
+# 使用extend增加一个列表，列表地址不变
+list.extend([100,200])
+print(id(list))
+
+
+
+#使用+增加一个列表，列表地址改变！！！
+list = list+[100,200]
+print(id(list))

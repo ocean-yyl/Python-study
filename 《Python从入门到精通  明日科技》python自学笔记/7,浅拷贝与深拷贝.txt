@@ -1,0 +1,11 @@
+foo = [1,2]
+foo1 = foo          # 浅拷贝。使用原地址
+foo2 = foo[:]       #拷贝全部，深拷贝的一种。使用新地址
+foo3 = foo.copy()   #深拷贝。使用新地址
+
+foo.append(0)       #在末尾增加一个元素
+
+print("foo = ",foo,id(foo))
+print("foo1 = ",foo1,id(foo1))
+print("foo2 = ",foo2,id(foo2))
+print("foo3 = ",foo3,id(foo3))

@@ -1,0 +1,87 @@
+list = list(range(1,11))    # 利用range创建列表
+print("list打印：",list)
+print("list的长度是：",len(list))    # 获取序列的长度用len()函数
+
+
+
+#2, enumerate函数。同时返回列表的索引值和元素值
+for item in list:
+    print(item,end="    ")
+print()
+
+for index, item in enumerate(list):
+    print(index,":",item,end="  ")
+print("\n以上是两种方式循环遍历列表")
+
+
+#3, 列表，增加元素
+# 在列表末尾添加新元素
+list.append(11)
+print("list在末尾增加元素11:",list)
+#在指定位置插入新元素
+list.insert(0,0)
+print("list在0位置插入元素0：",list)
+
+#4，列表相加
+list2 = [100,200]
+list.extend(list2)  #使用extend（）函数
+print("list增加一个新的列表[100,200]，使用extend()函数：",list)
+
+list3 = list2 + list2   #使用+
+print("两个列表[100,200]相加，使用+：",list3)
+
+#5，删除列表中的元素
+#5.1 按索引删除
+del list[0]
+print("删除列表中位置为0的元素：",list)
+
+#5.2 按元素值删除
+list3.remove(200)   #remove函数，仅删除一个元素。并且删除最先出现的相同值元素
+print("列表list3=[100,200,100,200],list3.remove(200)结果为：",list3)
+
+#6，获取指定元素出现的次数
+print("100 在list3[100,100,200]中出现的次数为：",list3.count(100))
+
+#7，获取指定元素首次出现的下标
+print("list打印：",list)
+print("5在list中首次出现的下标是：",list.index(5))
+
+#8，统计list所有元素之和
+print("list所有元素之和：",sum(list))
+
+
+del list,list2,list3
+print("***************删除所有list对象****************")
+list = [1,3,2,5,4]
+list2 = list[:]
+list3 = list.copy()
+print("新建list：",list)
+print("list2深读拷贝list：",list2)
+print("list3深读拷贝list：",list3)
+
+#9，对列表进行排序
+#9.1 sort函数，直接在改变原列表，实现排序
+listtemp = list.sort(key=None,reverse=True) # 反序排列
+print("list = ",list)
+print("listtemp = ",listtemp)
+#9.2sorted函数，不改变原列表，生成一个原列表的副本后再进行排序
+listtemp2 = sorted(list2,key=None,reverse=False)
+print("list2 = ",list2)
+print("listtemp2 = ",listtemp2)
+
+#10，列表推导式
+import random
+randomlist = [random.randint(1,100) for i in range(10)]
+print("生成含有10个随机数的列表为：",randomlist)
+#10.2 list=[Expression for var in list]
+randomlist2 = [x*2 for x in randomlist]
+print("对randomlist中元素*2生成新的列表randomlist2：",randomlist2)
+#10.3 lsit=[Expression for var in list if condition]
+randomlist3 = [x*3 for x in randomlist if x%2 == 1]
+print("对randomlist中奇数元素*3生成新的列表randomlist3：",randomlist3)
+
+#11，reverse()函数，实现列表元素逆序
+print("list3：",list3)
+list3.reverse()
+print("list3.reverse()后的list3：",list3)
+

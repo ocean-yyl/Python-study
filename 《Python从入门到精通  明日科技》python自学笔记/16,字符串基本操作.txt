@@ -1,0 +1,130 @@
+# 字符串
+str = "hello PUA!"
+
+#1，字符串编码转换
+#1.1 str.encode()方法，返回bytes对象
+bytes1 = str.encode("utf-8")
+print(bytes1)
+#1.2 bytes对象的decode()方法，返回字符串str对象
+str1 = bytes1.decode("utf-8")
+print(str1)
+
+#2，拼接字符串+
+
+#3，截取字符串——>切片法string[start:end:step]
+
+#4，分割、合并字符串
+str_spilt = "Hello;PUA;!;I;am;a;PUA;."
+print(str_spilt)
+# sep 分隔符      maxsplit 最大分割次数，指定值为-1或者不指定值，则分割次数没有限制。否则最多分割maxsplit次同时返回maxsplit+1个元素
+list_spilt = str_spilt.split(sep=";",maxsplit=-1)
+print(list_spilt)
+list_spilt2 = str_spilt.split(sep=";",maxsplit=2)
+print(list_spilt2)
+# 合并字符串，使用join。将多个字符串采用固定的分隔符连接在一起
+str_join = " ".join(list_spilt) # 使用空格list_spilt中连接各个字符串元素。从第二个元素开始，每个元素前加空格" "
+print(str_join)
+
+#5，检索字符串
+#5.1 count方法 count(sub[, start[, end]])
+print("str_join中PUA出现的次数：",str_join.count("PUA"))
+#5.2 find()方法 find(sub[, start[, end]])r
+print("在str_join中find字符串PUA，PUA首次出现的位置：",str_join.find("PUA"))
+print("rfind从右边开始查找，在str_join中find字符串PUA，PUA首次出现的位置：",str_join.rfind("PUA"))
+#5.3 index()方法 index(sub[, start[, end]])
+print("在str_join中index查找字符串PUA，PUA首次出现的位置：",str_join.index("PUA"))
+print("rindex从右边开始查找，在str_join中index查找字符串PUA，PUA首次出现的位置：",str_join.rindex("PUA"))
+## index 和find 的区别在于，如果查找的字符串不存在，   find返回-1   而   index会抛出异常
+#5.4startswith startswith(prefix[, start[, end]])
+print("str_join是否以PUA开头：",str_join.startswith("PUA"))
+#5.endswith endswith(prefix[, start[, end]])
+print("str_join是否以PUA结尾：",str_join.endswith("PUA"))
+
+#6，大小写转换
+#6.1转换为大写
+print("str_join大写形式：",str_join.upper())
+print("str_join字符串不改变：",str_join)
+#6.2转换为小写
+print("str_join小写形式：",str_join.lower())
+
+#7，去除字符串中的空格和特殊字符（制表符\t、回车符\r、换行符\n等）
+str_strip = " hello world!"
+print("str_strip打印：",str_strip)
+#7.1 strip() 用于去掉字符串左右两侧的空格和特殊字符
+print("str_strip左右两侧去掉空格或！或。后：",str_strip.strip(' !。'))# 去掉字符串首尾的【 空格 或 ！ 或 。】
+#7.2 lstrip() 用于去掉字符串左侧的空格和特殊字符
+print("str_strip左侧去掉特殊字符后：",str_strip.lstrip())# 去掉字符串左侧的特殊字符
+#7.3 lstrip() 用于去掉字符串右侧的空格和特殊字符
+print("str_strip右侧去掉特殊字符后：",str_strip.rstrip())# 去掉字符串右侧的特殊字符
+
+#8，格式化字符串
+"""
+
+%%	百分号标记#就是输出一个%
+%c	字符及其ASCII码
+%s	字符串
+%d	有符号整数(十进制)
+%u	无符号整数(十进制)
+%o	无符号整数(八进制)
+%x	无符号整数(十六进制)
+%X	无符号整数(十六进制大写字符)
+%e	浮点数字(科学计数法)
+%E	浮点数字(科学计数法，用E代替e)
+%f	浮点数字(用小数点符号)
+%g	浮点数字(根据值的大小采用%e或%f)
+%G	浮点数字(类似于%g)
+%p	指针(用十六进制打印值的内存地址)
+%n	存储输出字符的数量放进参数列表的下一个变量中
+
+
+字符串格式控制%[(name)][flag][width][.][precision]type
+name:可为空，数字(占位),命名(传递参数名,不能以数字开头)以字典格式映射格式化，其为键名
+
+flag:标记格式限定符号,包含+-#和0,+表示右对齐(会显示正负号),-左对齐,前面默认为填充空格(即默认右对齐)，0表示填充0，#表示八进制时前面补充0,16进制数填充0x,二进制填充0b
+
+width:宽度(最短长度,包含小数点,小于width时会填充)
+
+precision:小数点后的位数,与C相同
+
+type:输入格式类型，请看上面
+
+
+
+还有一种format_spec格式{[name][:][[fill]align][sign][#][0][width][,][.precision][type]}
+用{}包裹name命名传递给format以命名=值 写法,非字典映射,其他和上面相同
+
+fill =  <any character>　　#fill是表示可以填写任何字符
+
+align =  "<" | ">" | "=" | "^"　　#align是对齐方式，<是左对齐， >是右对齐，^是居中对齐。
+
+sign  =  "+" | "-" | " "　　#sign是符号， +表示正号， -表示负号
+
+width =  integer　　#width是数字宽度，表示总共输出多少位数字
+
+precision =  integer　　#precision是小数保留位数
+
+type =  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" | "o" | "s" | "x" | "X" | "%"　　
+#type是输出数字值是的表示方式，比如b是二进制表示；比如E是指数表示；比如X是十六进制表示
+"""
+#format中的字符串参数可以使用{num}来表示。0表示第一个，1表示第二个，以此类推。
+print ("{0} and {1} is good for big data".format("python","java"))
+print ("{} and {} is good for big data".format("python","java"))
+print ("{1} and {0} and {0} is good for big data".format("python","java"))
+#还可以为参数制定名字：
+print ("{language1} is as well as {language2}".format(language1="python",language2="java"))
+
+#通过集合下标的方式访问
+languages = ["python","java"]
+print ("{0[0]} is as well as {0[1]}".format(languages))
+
+# 通过对象属性
+class Person(object):
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return "name is: {current.name}, age is: {current.age}".format(current=self)
+
+p = Person("yyl", 18)
+print(p)

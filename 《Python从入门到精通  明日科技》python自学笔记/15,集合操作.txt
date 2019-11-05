@@ -1,0 +1,33 @@
+#集合操作
+
+#1，定义集合，直接使用{}创建
+set1 = {1,2,3,4,5,"人生苦短，及时行乐"}
+print(set1)
+
+#2，使用set函数，将列表、元组等可迭代对象转换为集合
+str = "hello"
+set2 = set(str)
+print(set2)
+
+#3，添加元素 set.add()
+set1.add("hello PUA")
+print(set1)
+
+#4，删除元素pop,remove,clear()
+set1.remove(1)
+print(set1)
+set1.pop()
+print(set1)
+set1.clear()
+print(set1)
+
+#5，集合的 交&   并|  差-  对称差^
+set1=set(range(1,6))
+set2=set(range(1,11,2))
+print(set1)
+print(set2)
+
+print("交集：",set1&set2)
+print("并集：",set1|set2)
+print("差集：",set1-set2)
+print("对称差：",set1^set2)
