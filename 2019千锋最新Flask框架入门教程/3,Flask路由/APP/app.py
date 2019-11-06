@@ -5,11 +5,11 @@ app = Flask(__name__)
 https://blog.csdn.net/qq_42517220/article/details/88693576
 
 常用路由方式有以下五种
-@app.route('/user/<username>')
-@app.route('/post/<int:post_id>')
-@app.route('/post/<float:post_id>')
-@app.route('/post/<path:path>')
-@app.route('/login', methods=['GET','POST'])
+@init_flask_MTV.route('/user/<username>')
+@init_flask_MTV.route('/post/<int:post_id>')
+@init_flask_MTV.route('/post/<float:post_id>')
+@init_flask_MTV.route('/post/<path:path>')
+@init_flask_MTV.route('/login', methods=['GET','POST'])
 
 flask路由的规则:
 string 接收任何没有斜杠('/')的文件(默认)
@@ -91,5 +91,5 @@ def rePhone(mobile):
 	return 'your phone num is %s' % mobile
 
 if __name__ == '__main__':
-	# print(app.url_map)  # 可以通过url_map可以查看整个flask中的路由信息,命令行输入python app.py
+	# print(init_flask_MTV.url_map)  # 可以通过url_map可以查看整个flask中的路由信息,命令行输入python manage.py
 	app.run(debug=True)

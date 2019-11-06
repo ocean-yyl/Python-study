@@ -7,4 +7,6 @@
 
 4,flask是一个灵活性的为框架,你可以根据需要拆成各种各样的框架形式.
 
-5,
+5,！坑：migrate执行失败，SQLALCHEMY_DATABASE_URI="sqlite:///test.db" 多写了一个/
+
+6,
