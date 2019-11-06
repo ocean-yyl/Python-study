@@ -12,6 +12,8 @@
 7，flask请求错误处理
 8，flask会话保持,持久化存储到redis中
     pip install Flask-Session
-9，template
+9，template的使用
     Jinja语法的使用 "挖坑填坑"
     pip install flask-bootstrap
+10,models的使用
+    数据库操作

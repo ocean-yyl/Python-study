@@ -9,4 +9,6 @@
 
 5,！坑：migrate执行失败，SQLALCHEMY_DATABASE_URI="sqlite:///test.db" 多写了一个/
 
-6,
+6,项目不要使用中文路径！！！
+    在使用sqlite数据库的时候，由于中文路径，导致根本找不到数据库，sql语句执行一直失败。
+7,

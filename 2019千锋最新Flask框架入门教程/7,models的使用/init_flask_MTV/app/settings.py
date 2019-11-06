@@ -7,7 +7,7 @@ class Config:
 class DevelopConfig(Config):
     DEBUG = True
 
-    SQLALCHEMY_DATABASE_URI = "sqlite:///test.db"
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:123456@127.0.0.1:3306/flasksqlalchemy"
 
 
 class TestConfig(Config):

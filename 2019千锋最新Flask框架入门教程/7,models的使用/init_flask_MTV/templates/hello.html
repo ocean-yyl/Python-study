@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-hello flask
+{% for user in users %}
+    <li>{{ user.name }}</li>
+{% endfor %}
 </body>
 </html>
