@@ -3,7 +3,7 @@ from flask import Blueprint,render_template
 from app.models import Student,User
 from app.ext import db
 
-bp = Blueprint("blueprint",__name__)
+bp = Blueprint("blueprint",__name__,template_folder="../templates",url_prefix="/blue")
 
 # 注册bp
 def init_bp(app):
@@ -29,7 +29,7 @@ def adduser():
 @bp.route('/addusers')
 def addusers():
     userlist = []
-    for i in range(10):
+    for i in range(10,20):
         user = User()
         user.name = "psman"+str(i)
         user.uid = 10000+i
